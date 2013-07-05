@@ -9,7 +9,9 @@ gem 'pg'
 gem 'pry-rails'
 gem 'pry-debugger'
 gem 'better_errors'
-gem 'binding-of-caller'
+gem 'binding_of_caller'
+gem 'meta_request'
+gem 'haml-rails'
 
 group :development do
   gem 'pry-rails'
@@ -17,6 +19,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'haml-rails'
 end
 
 # Gems used only for assets and not required
