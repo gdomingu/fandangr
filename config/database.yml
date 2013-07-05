@@ -1,0 +1,27 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: fandangr_development
+  pool: 5
+  username: Gabriel
+  password:
+
+
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: fandangr_test
+  pool: 5
+  username: Gabriel
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: fandangr_production
+  pool: 5
+  username: Gabriel
+  password:
