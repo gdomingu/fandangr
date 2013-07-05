@@ -8,7 +8,7 @@ development:
   username: Gabriel
   password:
 
-
+test:
   adapter: postgresql
   encoding: unicode
   host: localhost

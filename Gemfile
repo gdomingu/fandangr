@@ -6,12 +6,6 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'pry-rails'
-gem 'pry-debugger'
-gem 'better_errors'
-gem 'binding_of_caller'
-gem 'meta_request'
-gem 'haml-rails'
 
 group :development do
   gem 'pry-rails'
