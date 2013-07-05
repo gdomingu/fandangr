@@ -20,5 +20,7 @@ describe Theater do
     theater = Theater.new(:name => "Century 12", :address => "123 Main")
     expect(theater.valid?).to be_false
   end
-
+ # feel like I should add a test to test relationships but not sure how to do that. experimenting with shoulda-gem
+  it { should have_many(:rooms)}
+  end
 end
