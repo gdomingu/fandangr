@@ -13,4 +13,12 @@ describe Screening do
    screening = Screening.new
    expect(screening.valid?).to be_false
    end
+
+   it "should have many tickets" do
+    should have_many(:tickets)
+  end
+
+   it "should belong to a room" do
+    should belong_to(:room)
+  end
 end
