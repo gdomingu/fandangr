@@ -12,5 +12,7 @@ describe Room do
     room = Room.new
     expect(room.valid?).to be_false
   end
-
+  it "should have many screenings" do
+    should have_many(:screenings)
+  end
 end
