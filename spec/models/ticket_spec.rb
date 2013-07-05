@@ -13,5 +13,7 @@ describe Ticket do
     ticket = Ticket.new
     expect(ticket.valid?).to be_false
   end
-
+  it "should belong to screening" do
+    should belong_to(:screening)
+  end
 end
