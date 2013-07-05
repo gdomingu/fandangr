@@ -3,4 +3,5 @@ class Ticket < ActiveRecord::Base
 
   validates :price, :screening_id, :seat_num, :presence => true
   belongs_to :screening
+  belongs_to :user
 end
