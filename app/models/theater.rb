@@ -4,4 +4,6 @@ class Theater < ActiveRecord::Base
   validates :name, :presence => true
   validates :address, :presence => true
   validates :num_of_rooms, :presence => true
+
+  has_many :rooms
 end

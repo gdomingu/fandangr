@@ -21,6 +21,7 @@ describe Theater do
     expect(theater.valid?).to be_false
   end
  # feel like I should add a test to test relationships but not sure how to do that. experimenting with shoulda-gem
-  it { should have_many(:rooms)}
+  it "should have many rooms" do
+    should have_many(:rooms)
   end
 end
