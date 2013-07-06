@@ -13,4 +13,9 @@ describe User do
     user = User.new
     expect(user.valid?).to be_false
   end
+
+  it "should have a ticket" do
+    should have_many(:tickets)
+  end
+
 end
