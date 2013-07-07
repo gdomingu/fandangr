@@ -1,0 +1,25 @@
+%p#notice= notice
+
+%table#theater_info
+  %tr
+    %th Name
+    %th Address
+    %th Number of Rooms
+
+  %tr
+    %td= @theater.name
+    %td= @theater.address
+    %td= @theater.num_of_rooms
+
+%table#now_playing
+  -@rooms.each do |room|
+    %tr
+      %td= room.screenings.first.name
+      -room.screenings.each do |screening|
+        %td= screening.time
+        %td= link_to 'buy tickets', screening_path(screening.id)
+
+
+= link_to 'Edit', edit_theater_path(@theater)
+\|
+= link_to 'Back', theaters_path

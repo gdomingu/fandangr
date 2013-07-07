@@ -1,0 +1,18 @@
+%h1 Listing theaters
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @theaters.each do |theater|
+    %tr
+      %td= theater.name
+      %td= link_to 'Show Movies', theater
+      %td= link_to 'Edit', edit_theater_path(theater)
+      %td= link_to 'Destroy', theater, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Theater', new_theater_path

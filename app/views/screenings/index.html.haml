@@ -1,0 +1,17 @@
+%h1 Listing screenings
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @screenings.each do |screening|
+    %tr
+      %td= link_to 'Show', screening
+      %td= link_to 'Edit', edit_screening_path(screening)
+      %td= link_to 'Destroy', screening, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Screening', new_screening_path

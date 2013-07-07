@@ -1,0 +1,12 @@
+%p#notice= notice
+%h1="#{@screening.time} Showing of #{@screening.name}"
+%div.theater
+  %div.screen Screen
+  %div.seats
+    -@tickets.each do |ticket|
+      %div{:id => ticket.seat_num, :class => "seat"}
+        = link_to("Buy", "/screenings/#{@screening.id}/tickets/#{ticket.id}")
+
+= link_to 'Edit', edit_screening_path(@screening)
+\|
+= link_to 'Back', screenings_path
