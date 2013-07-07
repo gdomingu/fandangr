@@ -1,11 +1,23 @@
 %p#notice= notice
 %h1="#{@screening.time} Showing of #{@screening.name}"
-%div.theater
-  %div.screen Screen
-  %div.seats
-    -@tickets.each do |ticket|
-      %div{:id => ticket.seat_num, :class => "seat"}
-        = link_to("Buy", "/screenings/#{@screening.id}/tickets/#{ticket.id}")
+-if current_user != nil
+  %div.theater
+    %div.screen Screen
+    %div.seats
+      -@tickets.each do |ticket|
+        -if ticket.user_id.blank?
+          %div{:id => ticket.seat_num, :class => "open_seat"}
+            = link_to("Buy", "/screenings/#{@screening.id}/tickets/#{ticket.id}", :remote => true)
+        -else
+          %div{:id => ticket.seat_num, :class => "taken_seat"}
+-else
+  %h3 Please log in to buy tickets
+  %div.theater
+    %div.screen Screen
+    %div.seats
+      -@tickets.each do |ticket|
+        %div{:id => ticket.seat_num, :class => "seat"}
+
 
 = link_to 'Edit', edit_screening_path(@screening)
 \|

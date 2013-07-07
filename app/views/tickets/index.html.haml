@@ -1,18 +1,22 @@
 %h1 Listing tickets
+- if current_user != nil
+  %table
+    - current_user.tickets.each do |ticket|
+      %tr
+        %td Movie
+        %td Time
+        %td Price
+        %td Seat Number
+      %tr
+        %td= ticket.screening.name
+        %td= ticket.screening.time
+        %td= "$" + ticket.price.to_s
+        %td= ticket.seat_num
+        %td= link_to 'Show', ticket
+        %td= link_to 'Edit', edit_ticket_path(ticket)
+        %td= link_to 'Destroy', ticket, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %br
 
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @tickets.each do |ticket|
-    %tr
-      %td= ticket.price
-      %td= link_to 'Show', ticket
-      %td= link_to 'Edit', edit_ticket_path(ticket)
-      %td= link_to 'Destroy', ticket, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Ticket', new_ticket_path
+  = link_to 'New Ticket', new_ticket_path
+-else
+  %p "Please log in to view your tickets"

@@ -1,4 +1,9 @@
-%form#ticket_purchase
-  %input{ :type => "float", :name => "ticket_type", :id => "ticket_type", :value => "Enter Price..."}
-  %input{ :type => "number", :name => "seat_num", :id => "seat_num", :value => "#{@ticket.id}"}
-  %button Send
+= form_for @ticket, :remote => true, url: {action: "update"} do |f|
+  =f.text_field(:price, {:value => "Enter Price..."})
+  %br
+  =f.text_field(:seat_num, {:value => "#{@ticket.seat_num}"})
+  %br
+  =f.text_field(:user_id, {:value => "#{current_user.id}"})
+  %br
+  .actions
+    =  f.submit "Buy"

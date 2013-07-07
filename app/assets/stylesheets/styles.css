@@ -2,14 +2,18 @@ table, th, td {
 border: 1px solid;
 }
 
-.seat {
+.open_seat, .taken_seat {
   height:30px;
   width: 30px;
-  background-color: grey;
   float:left;
   margin:10px;
 }
-
+.open_seat {
+  background-color: grey;
+}
+.taken_seat {
+  background-color: red;
+}
 .theater {
   height: 500px;
   width:300px;

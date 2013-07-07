@@ -14,7 +14,7 @@ class ScreeningsController < ApplicationController
   # GET /screenings/1.json
   def show
     @screening = Screening.find(params[:id])
-    @tickets = @screening.tickets
+    @tickets = @screening.tickets.sort
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @screening }
