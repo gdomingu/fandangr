@@ -1,4 +1,8 @@
 Fandangr::Application.routes.draw do
+resources :sessions, :only =>[:new, :create]
+match "login", :to => 'sessions#new', :as => "login"
+match "logout", :to => 'sessions#destroy', :as => "logout"
+
 resources :users
 resources :tickets
 resources :theaters
