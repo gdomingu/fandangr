@@ -61,7 +61,7 @@ class TicketsController < ApplicationController
     respond_to do |format|
       if @ticket.update_attributes(params[:ticket])
         format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
-        format.json { head :no_content }
+        format.js
       else
         format.html { render action: "edit" }
         format.json { render json: @ticket.errors, status: :unprocessable_entity }
@@ -71,7 +71,18 @@ class TicketsController < ApplicationController
 
 def buy
   @ticket = Ticket.find(params[:id])
+
+  respond_to do |format|
+    if @ticket.update_attributes(params[:ticket])
+      format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
+      format.js
+    else
+      format.html { render action: "edit" }
+      format.json { render json: @ticket.errors, status: :unprocessable_entity }
+    end
+  end
 end
+
   # DELETE /tickets/1
   # DELETE /tickets/1.json
   def destroy

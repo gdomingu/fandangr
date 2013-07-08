@@ -6,10 +6,16 @@
     %div.seats
       -@tickets.each do |ticket|
         -if ticket.user_id.blank?
-          %div{:id => ticket.seat_num, :class => "open_seat"}
-            = link_to("Buy", "/screenings/#{@screening.id}/tickets/#{ticket.id}", :remote => true)
+          %div{:id => ticket.seat_num, :class => "open seat"}
+            =form_for ticket, :remote => true, url: "/screenings/#{@screening.id}/tickets/#{ticket.id}" do |f|
+              =f.hidden_field(:price, {:value => 12.00})
+              =f.hidden_field(:seat_num, {:value => "#{ticket.seat_num}"})
+              =f.hidden_field(:user_id, {:value => "#{current_user.id}"})
+              =f.hidden_field(:screening_id, {:value => "#{@screening.id}"})
+              .actions
+                = f.submit "Buy"
         -else
-          %div{:id => ticket.seat_num, :class => "taken_seat"}
+          %div{:id => ticket.seat_num, :class => "taken seat"}
 -else
   %h3 Please log in to buy tickets
   %div.theater

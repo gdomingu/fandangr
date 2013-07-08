@@ -9,7 +9,7 @@ resources :theaters
 resources :rooms
 resources :screenings
    root :to => 'theaters#index'
-get 'screenings/:id/tickets/:id', :to => 'tickets#buy'
+put 'screenings/:id/tickets/:id', :to => 'tickets#buy'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
